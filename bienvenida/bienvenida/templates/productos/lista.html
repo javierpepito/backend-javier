@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Lista de Productos</title> 
+    </head> 
+    <body>     
+        <h1 style="color: blue; font-family: 'Courier New', Courier, monospace;">Productos disponibles: </h1>
+            {% for producto in productos %}
+            <li>{{ producto.nombre }} - ${{ producto.precio }} - {{ producto.stock }}</li>   
+
+            {% if producto.stock <= 0 %}
+                <span>Sin stock</span>
+            {% endif %}
+
+            {% empty %}
+            <li>
+                No hay ningun producto.
+            </li>
+            <div>
+                <img src="https://assets.xboxservices.com/assets/c3/ba/c3badfea-655f-4ddb-a037-704e5cf27930.jpg?n=488123_GLP-Page-Hero-1084_1920x1080.jpg" style="width: 1000px; height: 500px;">
+            </div>
+            {% endfor %}    
+        </ul> 
+    </body> 
+</html> 
