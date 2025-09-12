@@ -16,9 +16,9 @@ def producto_detail(request, pk):
 def producto_create(request):
     if request.method == 'POST':
         form = ProductoForm(request.POST)
-    if form.is_valid():
-        form.save()
-        return redirect('producto_list')
+        if form.is_valid():
+            form.save()
+            return redirect('producto_list')
     else:
         form = ProductoForm()
         return render(request, 'inventario/producto_form.html', {'form':form})
